@@ -1,0 +1,135 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserWPFApp.WPFWindows"
+        xmlns:lang ="clr-namespace:UserWPFApp.Properties"
+        x:Class="UserWPFApp.WPFWindows.ReviewOfRepresentationsWindow"
+        mc:Ignorable="d"
+        Title="{x:Static lang:Resources.mainTitle}" Height="320" Width="640" ResizeMode="CanMinimize" Loaded="Window_Loaded" Closing="Window_Closing">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  />
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label x:Name="lblInfo" Content="{x:Static lang:Resources.lblInfo}" Grid.Row="0" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" />
+        <ComboBox x:Name="cbHomeTeam" Grid.Row="0" Grid.Column="0" Width="250" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="30" SelectionChanged="cbHomeTeam_SelectionChanged" />
+        <ComboBox x:Name="cbAwayTeam"  Grid.Row="0" Grid.Column="2" Width="250"  HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30" SelectionChanged="cbAwayTeam_SelectionChanged" />
+        <Button x:Name="btnHomeTeam" 
+                Content="{x:Static lang:Resources.btnTeam}" 
+                Grid.Row="1" Grid.Column="0" 
+                Height="50" 
+                Width="200" 
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Top" 
+                FontSize="30"
+                RenderTransformOrigin="0.5, 0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="0"/>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard AutoReverse="True">
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
+                                Duration="0:0:0.4"
+                                To="-5"/>
+
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)"
+                                Duration="0:0:0.4"
+                                To="1.5"/>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)"
+                                Duration="0:0:0.4"
+                                To="1.5"/>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                Duration="0:0:0.4"
+                                To="Red"/>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="FontSize"
+                                Duration="0:0:0.4"
+                                To="20"/>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)"
+                                Duration="0:0:0.25"
+                                To="0.5" Completed="btnStatistics_Click"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button x:Name="btnOpenField" Content="{x:Static lang:Resources.btnOpenField}" Grid.Row="1" Grid.Column="1" Height="50" Width="100" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" Click="btnOpenField_Click" />
+        <Button x:Name="btnAwayTeam" 
+            Content="{x:Static lang:Resources.btnTeam}" 
+            Grid.Row="1" 
+            Grid.Column="2" 
+            Height="50" 
+            Width="200" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            FontSize="30"
+            RenderTransformOrigin="0.5, 0.5">
+
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform Angle="0"/>
+                    <ScaleTransform ScaleX="1" ScaleY="1"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.Click">
+                    <BeginStoryboard>
+                        <Storyboard AutoReverse="True">
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)"
+                                Duration="0:0:0.4"
+                                To="-5"/>
+                            
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)"
+                                Duration="0:0:0.4"
+                                To="1.5"/>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)"
+                                Duration="0:0:0.4"
+                                To="1.5"/>
+                            <ColorAnimation
+                                Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                Duration="0:0:0.4"
+                                To="Red"/>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="FontSize"
+                                Duration="0:0:0.4"
+                                To="20"/>
+                            <DoubleAnimation
+                                Storyboard.TargetProperty="(Button.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)"
+                                Duration="0:0:0.4"
+                                To="0.5" Completed="btnStatistics_Click"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button x:Name="btnSettings" 
+                Grid.Row="1" 
+                Grid.Column="1"
+                HorizontalAlignment="Right" VerticalAlignment="Center" 
+                Width="100" Height="50"
+                Click="btnSettings_Click">
+                <Image x:Name="btnSettingsImageSource" />
+        </Button>
+    </Grid>
+</Window>

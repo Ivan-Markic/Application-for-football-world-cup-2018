@@ -1,0 +1,70 @@
+﻿<Window x:Class="UserWPFApp.WPFWindows.PlayerStatisticsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserWPFApp.WPFWindows"
+        xmlns:lang="clr-namespace:UserWPFApp.Properties"
+        mc:Ignorable="d"
+        Title="PlayerStatisticsWindow" 
+        Height="0" 
+        Width="0" 
+        ResizeMode="CanMinimize" 
+        WindowStartupLocation="CenterScreen">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation  
+                                      Storyboard.TargetProperty = "(Window.Height)"
+                                        To="320" Duration="0:0:3"/>
+                    <Storyboard>
+                        <DoubleAnimation 
+                                      Storyboard.TargetProperty = "(Window.Width)"
+                                      To="640" Duration="0:0:3"/>
+                        <Storyboard>
+                            <DoubleAnimation Duration="0:0:0.5" Storyboard.TargetProperty = "(Window.Left)"
+                                             To="448"/>
+                            <Storyboard>
+                                <DoubleAnimation Duration="0:0:0.5" Storyboard.TargetProperty = "(Window.Top)"
+                                             To="272"/>
+                            </Storyboard>
+                        </Storyboard>
+                    </Storyboard>
+                    <ColorAnimation
+                                Storyboard.TargetProperty="(Window.Background).(SolidColorBrush.Color)"
+                                Duration="0:0:1"
+                                From="DeepSkyBlue" To="Chocolate" AutoReverse="True"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image x:Name="imgPicture" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+        <Image x:Name="imgLeftStar" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" />
+        <Image x:Name="imgRightStar" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBlock x:Name="tbName" Text="{x:Static lang:Resources.tbName}" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <TextBlock x:Name="tbNameValue" Text="Name" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <TextBlock x:Name="tbNumber" Text="{x:Static lang:Resources.tbNumber}" Grid.Row="2" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <TextBlock x:Name="tbNumberValue" Text="Number" Grid.Row="2" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <TextBlock x:Name="tbPosition" Text="{x:Static lang:Resources.tbPosition}" Grid.Row="3" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <TextBlock x:Name="tbPositionValue" Text="Surname" Grid.Row="3" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <TextBlock x:Name="tbGoals" Text="{x:Static lang:Resources.tbGoals}" Grid.Row="4" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <TextBlock x:Name="tbGoalsValue" Text="Surname" Grid.Row="4" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <TextBlock x:Name="tbYellowCards" Text="{x:Static lang:Resources.tbYellowCards}" Grid.Row="5" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+        <TextBlock x:Name="tbYellowCardsValue" Text="Surname" Grid.Row="5" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15"/>
+
+    </Grid>
+</Window>
